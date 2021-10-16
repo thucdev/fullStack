@@ -14,14 +14,12 @@ let handleUserLogin = (email, password) => {
                 })
                 if (user) {
                     let check = await bcrypt.compare(password, user.password)
-
                     if (check) {
                         userData.errCode = 0
                         userData.errMessage = 'Oke'
 
                         delete user.password
-                        userData = user
-                        console.log(user)
+                        userData.user = user
                     } else {
                         userData.errCode = 3
                         userData.errMessage = 'Wrong password'

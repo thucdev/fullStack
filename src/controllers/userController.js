@@ -20,4 +20,23 @@ const handleLogin = async (req, res) => {
     })
 }
 
-module.exports = {handleLogin}
+let handleGetAllUsers = async (req, res) => {
+    let id = req.body.id //ALL, id
+    let users = await userService.getAllUsers(id)
+
+    if (!id) {
+        return res.status(500).json({
+            errCode: 1,
+            errMessage: 'Missing input parameters',
+            users: [],
+        })
+    }
+
+    return res.status(200).json({
+        errCode: 0,
+        errMessage: 'Oke con de',
+        users,
+    })
+}
+
+module.exports = {handleLogin, handleGetAllUsers}

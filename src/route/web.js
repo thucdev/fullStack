@@ -14,6 +14,7 @@ let initWebRoutes = (app) => {
     router.get('/', homeController.getHomepage)
 
     router.post('/api/login', userController.handleLogin)
+    router.get('/api/get-all-users', userController.handleGetAllUsers)
 
     return app.use('/', router)
 }

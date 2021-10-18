@@ -10,6 +10,7 @@ let createNewUser = async (data) => {
                 email: data.email,
                 password: hashPW,
                 firstName: data.firstName,
+                lastName: data.lastName,
                 address: data.address,
                 phoneNumber: data.phoneNumber,
                 gender: data.gender === 1 ? true : false,
